@@ -1,42 +1,46 @@
-# Rodbit Theme
+# 🎨 Rodbit Theme for Neovim
 
-A custom Neovim theme created by the Rodbit team.
+A modern, carefully crafted color scheme for Neovim that prioritizes readability and visual comfort. With a perfect balance of colors and contrasts, Rodbit Theme enhances your coding experience while being easy on the eyes during those long coding sessions.
 
-## Features
+## ✨ Features
 
-- Vibrant color palette with a focus on readability and contrast
-- Comprehensive syntax highlighting for various programming languages
-- Carefully designed UI elements like status bar, floating windows, and more
-- Supports Neovim's built-in LSP and Git integration
+- Carefully selected color palette optimized for readability
+- Semantic color choices that make code structure clear at a glance
+- Support for popular plugins like Treesitter and LSP
+- Dark theme designed for extended coding sessions
+- Clean and consistent highlighting across different languages
 
-## Installation
+## 🚀 Installation
 
-1. Add the plugin to your Neovim configuration (e.g., in your `lua/plugins.lua` file):
+### Using [lazy.nvim](https://github.com/folke/lazy.nvim)
 
 ```lua
-return {
-  {
+{
     "rodbit-studios/rodbit-theme.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("rodbit-theme").setup()
-      vim.cmd.colorscheme("rodbit-theme")
+        require("rodbit-theme").load()
     end
-  }
 }
+
+Using packer.nvim
+luaCopyuse {
+    'rodbit-studios/rodbit-theme.nvim',
+    config = function()
+        require('rodbit-theme').load()
+    end
+}
+
+## 📸 Screenshots
+[Coming Soon]
+
+## 🤝 Contributing
+Contributions are welcome! Feel free to open an issue or submit a pull request if you have any improvements to suggest.
+
+## 📝 License
+MIT License - see the LICENSE file for details.
+
+## 💖 Credits
+Created with ❤️ by Rodbit Studios
 ```
-
-2. Restart Neovim, and the theme should be applied automatically.
-
-## Configuration
-
-The theme does not have any built-in configuration options. The colors and highlight groups are defined directly in the plugin code.
-
-## Contributing
-
-If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request on the [GitHub repository](https://github.com/rodbit-studios/rodbit-theme.nvim).
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
