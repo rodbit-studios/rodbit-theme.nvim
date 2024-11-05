@@ -18,7 +18,7 @@ M.palette = {
 
 	-- Tertiary Colors
 	tertiary = {
-		teal = "#A0DDE1", -- Light Blue-Green
+		teal = "#60d9e0", -- Light Blue-Green
 		dark_gray = "#4D4D4D", -- Dark Gray
 		off_white = "#FAFAFA", -- Off-White
 	},
