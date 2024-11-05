@@ -1,5 +1,7 @@
 local M = {}
 
+local colors = require("rodbit-theme.colors")
+
 function M.setup()
 	vim.cmd("highlight clear")
 	if vim.fn.exists("syntax_on") then
@@ -124,6 +126,10 @@ function M.setup()
 	hi("LspReferenceText", { bg = palette.bg.lighter })
 	hi("LspReferenceRead", { bg = palette.bg.lighter })
 	hi("LspReferenceWrite", { bg = palette.secondary.dark_blue })
+end
+
+function M.load()
+	M.setup()
 end
 
 return M
