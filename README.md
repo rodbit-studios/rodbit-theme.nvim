@@ -23,24 +23,31 @@ A modern, carefully crafted color scheme for Neovim that prioritizes readability
         require("rodbit-theme").load()
     end
 }
+```
 
-Using packer.nvim
+### Using [packer.nvim](https://github.com/wbthomason/packer.nvim)
+
+```lua
 luaCopyuse {
     'rodbit-studios/rodbit-theme.nvim',
     config = function()
         require('rodbit-theme').load()
     end
 }
+```
 
 ## 📸 Screenshots
+
 [Coming Soon]
 
 ## 🤝 Contributing
+
 Contributions are welcome! Feel free to open an issue or submit a pull request if you have any improvements to suggest.
 
 ## 📝 License
+
 MIT License - see the LICENSE file for details.
 
 ## 💖 Credits
+
 Created with ❤️ by Rodbit Studios
-```
