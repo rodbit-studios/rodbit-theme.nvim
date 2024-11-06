@@ -1,7 +1,5 @@
 local M = {}
 
-local colors = require("rodbit-theme.colors")
-
 function M.setup()
 	vim.cmd("highlight clear")
 	if vim.fn.exists("syntax_on") then
