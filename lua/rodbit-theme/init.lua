@@ -9,7 +9,7 @@ function M.setup()
 		rodbit_warning = "#ffc857",
 		rodbit_info = "#60d5f6",
 		rodbit_purple = "#dd9ff8",
-		rodbit_comment = "#eeeeee",
+		rodbit_comment = "#949494",
 	}
 
 	local theme = {
