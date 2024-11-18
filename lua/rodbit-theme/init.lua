@@ -1,7 +1,6 @@
 local M = {}
 
 local colors = {
-
 	-- Base colors
 	bg = {
 		dark = "#272935",
@@ -123,16 +122,16 @@ local theme = {
 }
 
 function M.setup()
-	-- Flatten nested theme structure and set highlights
-	for _, group in pairs(theme) do
-		for hl_group, colors in pairs(group) do
-			vim.api.nvim_set_hl(0, hl_group, colors)
-		end
-	end
+    -- Use vim.schedule to defer non-critical setup
+    vim.schedule(function()
+        for group, colors in pairs(require('rodbit.theme').highlights) do
+            vim.api.nvim_set_hl(0, group, colors)
+        end
+    end)
 end
 
 function M.load()
-	M.setup()
+    M.setup()
 end
 
 return M
