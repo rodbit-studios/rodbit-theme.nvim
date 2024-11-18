@@ -46,7 +46,7 @@ local colors = {
 local theme = {
 	-- Editor UI
 	editor = {
-		Normal = { fg = colors.info.dim, bg = colors.bg.dark },
+		Normal = { fg = colors.fg.light, bg = colors.bg.dark },
 		NonText = { fg = colors.comment, bg = colors.bg.dark },
 		CursorLine = { bg = colors.bg.medium },
 		LineNr = { fg = colors.comment, bg = colors.bg.dark },
