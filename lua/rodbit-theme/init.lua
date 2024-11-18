@@ -1,20 +1,7 @@
 local M = {}
 
--- Precompute highlights to avoid runtime computation
-local highlights = {}
-
-local function create_highlights(colors, theme)
-    -- Flatten nested theme structure
-    for category, groups in pairs(theme) do
-        for group, color_spec in pairs(groups) do
-            highlights[group] = color_spec
-        end
-    end
-    return highlights
-end
-
-function M.setup()
-    local colors = {
+-- Color palette with expanded shades
+local colors = {
 	-- Base colors
 	bg = {
 		dark = "#272935",
@@ -55,16 +42,7 @@ function M.setup()
 	comment = "#949494",
 }
 
-    -- Precompute highlights during setup
-    highlights = create_highlights(colors, {
-        editor = { ... },
-        syntax = { ... },
-        ui = { ... },
-        git = { ... },
-        diagnostic = { ... },
-        lang = { ... }
-    })
-
+-- Theme configuration grouped by functionality
 local theme = {
 	-- Editor UI
 	editor = {
@@ -144,17 +122,17 @@ local theme = {
 	},
 }
 
-
-
-
-    -- Apply highlights efficiently
-    for group, spec in pairs(highlights) do
-        vim.api.nvim_set_hl(0, group, spec)
-    end
+function M.setup()
+	-- Flatten nested theme structure and set highlights
+	for _, group in pairs(theme) do
+		for hl_group, colors in pairs(group) do
+			vim.api.nvim_set_hl(0, hl_group, colors)
+		end
+	end
 end
 
 function M.load()
-    M.setup()
+	M.setup()
 end
 
 return M
