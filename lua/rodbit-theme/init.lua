@@ -122,16 +122,14 @@ local theme = {
 }
 
 function M.setup()
-    -- Use vim.schedule to defer non-critical setup
-    vim.schedule(function()
-        for group, colors in pairs(require('rodbit.theme').highlights) do
-            vim.api.nvim_set_hl(0, group, colors)
-        end
-    end)
+	-- Use vim.schedule to defer non-critical setup
+	vim.schedule(function()
+		require("rodbit-theme").setup(theme)
+	end)
 end
 
 function M.load()
-    M.setup()
+	M.setup()
 end
 
 return M
