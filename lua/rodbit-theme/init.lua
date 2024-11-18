@@ -1,6 +1,20 @@
 local M = {}
 
-local colors = {
+-- Precompute highlights to avoid runtime computation
+local highlights = {}
+
+local function create_highlights(colors, theme)
+    -- Flatten nested theme structure
+    for category, groups in pairs(theme) do
+        for group, color_spec in pairs(groups) do
+            highlights[group] = color_spec
+        end
+    end
+    return highlights
+end
+
+function M.setup()
+    local colors = {
 	-- Base colors
 	bg = {
 		dark = "#272935",
@@ -41,7 +55,16 @@ local colors = {
 	comment = "#949494",
 }
 
--- Theme configuration grouped by functionality
+    -- Precompute highlights during setup
+    highlights = create_highlights(colors, {
+        editor = { ... },
+        syntax = { ... },
+        ui = { ... },
+        git = { ... },
+        diagnostic = { ... },
+        lang = { ... }
+    })
+
 local theme = {
 	-- Editor UI
 	editor = {
@@ -121,17 +144,17 @@ local theme = {
 	},
 }
 
-function M.setup()
-	-- Use vim.schedule to defer non-critical setup
-	vim.schedule(function()
-		for group, colors in pairs(require("rodbit.theme").highlights) do
-			vim.api.nvim_set_hl(0, group, colors)
-		end
-	end)
+
+
+
+    -- Apply highlights efficiently
+    for group, spec in pairs(highlights) do
+        vim.api.nvim_set_hl(0, group, spec)
+    end
 end
 
 function M.load()
-	M.setup()
+    M.setup()
 end
 
 return M
