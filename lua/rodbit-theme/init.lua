@@ -46,7 +46,7 @@ local colors = {
 local theme = {
 	-- Editor UI
 	editor = {
-		Normal = { fg = colors.fg.light, bg = colors.bg.dark },
+		Normal = { fg = colors.success.bright, bg = colors.bg.dark },
 		NonText = { fg = colors.comment, bg = colors.bg.dark },
 		CursorLine = { bg = colors.bg.medium },
 		LineNr = { fg = colors.comment, bg = colors.bg.dark },
@@ -123,12 +123,12 @@ local theme = {
 }
 
 function M.setup()
-	-- Flatten nested theme structure and set highlights
-	for _, group in pairs(theme) do
-		for hl_group, colors in pairs(group) do
-			vim.api.nvim_set_hl(0, hl_group, colors)
+	-- Use vim.schedule to defer non-critical setup
+	vim.schedule(function()
+		for group, colors in pairs(require("rodbit.theme").highlights) do
+			vim.api.nvim_set_hl(0, group, colors)
 		end
-	end
+	end)
 end
 
 function M.load()
