@@ -59,7 +59,7 @@ local theme = {
 
 	-- Syntax highlighting
 	syntax = {
-		Comment = { fg = colors.comment, italic = true },
+		Comment = { fg = colors.comment, bg = "NONE", italic = true },
 		SpecialComment = { fg = colors.comment, bg = "NONE" },
 		Constant = { fg = colors.success.muted },
 		String = { fg = colors.warning.muted },
